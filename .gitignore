@@ -7,4 +7,5 @@ log/
 **/.DS_Store
 DomainNet_ResNet_Exp/models/__pycache__/
 DomainNet_ResNet_Exp/datasets/domainnet
+DomainNet_ResNet_Exp/train_script
 ImageNet_ViT_Exp/datasets/imagenet

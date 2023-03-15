@@ -29,22 +29,22 @@
 - Fine-tuning CLIP ResNet50 w/o TPGM on DomainNet Real (100%). We also supprot fine-tuning on [1%,5%,10%,20%,50%] data. Please update `--percent 10` to reflect the change.  Remember to also update `--data_dir` to reflect changes to the location of image data.
 
     ```
-    python main_finetune.py --arch clip_resnet50 --id clip_vanilla --percent 100 --lr 1e-3 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --data_dir /datasets/domainnet
+    python main_finetune.py --arch clip_resnet50 --id clip_vanilla --percent 100 --lr 1e-3 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet --meta_dir ./datasets/ --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt
     ```
 
 - Fine-tuning CLIP ResNet50 with TPGM on DomainNet Real (100%). 
     ```
-    python main_finetune.py --arch clip_resnet50 --id clip_TPGM --percent 100 --lr 1e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet  --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --proj_freq 1
+    python main_finetune.py --arch clip_resnet50 --id clip_TPGM --percent 100 --lr 1e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet  --meta_dir ./datasets --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --proj_freq 1
     ```
 
 - Fine-tuning MocoV3 ResNet50 w/o TPGM on DomainNet Real (100%). 
     ```
-    python main_finetune.py --arch resnet50 --id moco_vanilla --percent 100 --lr 5e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet  --load_pretrained ../pre_trained/mocov3_resnet50_pretrain.tar 
+    python main_finetune.py --arch resnet50 --id moco_vanilla --percent 100 --lr 5e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet --meta_dir ./datasets --load_pretrained ../pre_trained/mocov3_resnet50_pretrain.tar 
     ```
 
 - Fine-tuning MocoV3 ResNet50 with TPGM on DomainNet Real (100%). 
     ```
-    python main_finetune.py --arch resnet50 --id moco_TPGM --percent 100 --lr 1e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet --load_pretrained ../pre_trained/mocov3_resnet50_pretrain.tar --proj_freq 1
+    python main_finetune.py --arch resnet50 --id moco_TPGM --percent 100 --lr 1e-2 --epoch 50 --gpu_per_node 4  --batch_size 64 --data_dir /datasets/domainnet --meta_dir ./datasets --load_pretrained ../pre_trained/mocov3_resnet50_pretrain.tar --proj_freq 1
     ```
 
 ## Evaluation examples and expected results

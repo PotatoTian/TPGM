@@ -3,7 +3,7 @@ from torchvision import transforms
 
 
 def get_loader(phase, **kwargs):
-    root = kwargs["root"]
+    meta_dir = kwargs["meta_dir"]
     data_dir = kwargs["data_dir"]
     dataset = kwargs["name"]
     if dataset == "domainnet":
@@ -16,7 +16,7 @@ def get_loader(phase, **kwargs):
         if phase == "train":
             return DomainNetDataset(
                 data_dir=data_dir,
-                root=root,
+                meta_dir=meta_dir,
                 sites=[kwargs["site"]],
                 train="train",
                 percent=kwargs["percent"],
@@ -32,7 +32,7 @@ def get_loader(phase, **kwargs):
         elif phase == "val":
             return DomainNetDataset(
                 data_dir=data_dir,
-                root=root,
+                meta_dir=meta_dir,
                 sites=[kwargs["site"]],
                 train="val",
                 percent=kwargs["percent"],
@@ -48,7 +48,7 @@ def get_loader(phase, **kwargs):
         else:
             return DomainNetDataset(
                     data_dir=data_dir,
-                    root=root,
+                    meta_dir=meta_dir,
                     sites=[kwargs["site"]],
                     train="test",
                     transform=transforms.Compose(

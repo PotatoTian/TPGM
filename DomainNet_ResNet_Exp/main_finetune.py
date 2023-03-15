@@ -23,13 +23,13 @@ def train(logdir, args):
 
     # Setup dataloader
     t_loader = get_loader(
-        "train", name=args.dataset, root=args.root, site=args.site, data_dir=args.data_dir, percent=args.percent
+        "train", name=args.dataset, meta_dir=args.meta_dir, site=args.site, data_dir=args.data_dir, percent=args.percent
     )
     v_loader = get_loader(
-        "val", name=args.dataset, root=args.root, site=args.site, data_dir=args.data_dir, percent=args.percent
+        "val", name=args.dataset, meta_dir=args.meta_dir, site=args.site, data_dir=args.data_dir, percent=args.percent
     )
     pgm_loader = get_loader(
-        "val", name=args.dataset, root=args.root, site=args.site, data_dir=args.data_dir, percent=args.percent
+        "val", name=args.dataset, meta_dir=args.meta_dir, site=args.site, data_dir=args.data_dir, percent=args.percent
     )
 
     trainloader = data.DataLoader(
@@ -165,7 +165,7 @@ def train(logdir, args):
     print("start testing")
     sites = ["real", "sketch", "painting", "infograph", "clipart"]
     datasets = [
-        get_loader("test", name=args.dataset, root=args.root, data_dir=args.data_dir, site=site)
+        get_loader("test", name=args.dataset, meta_dir=args.meta_dir, data_dir=args.data_dir, site=site)
         for site in sites
     ]
     loaders = [
@@ -208,13 +208,11 @@ def train(logdir, args):
             dump_logs(logdir, output + "\n")
 
 def main(args):
-    main_worker(0,args)
-
-
-def main_worker(local_rank, args):
-    args.local_rank = local_rank
     now = datetime.now()
-    logdir = "./log/{}_{}".format(args.id,now.strftime("%d_%m_%Y_%H_%M_%S"))
+    if args.output_dir is not None:
+        logdir = os.path.join(args.output_dir,"{}_{}".format(args.id, now.strftime("%d_%m_%Y_%H_%M_%S")))
+    else:
+        logdir = "./log/{}_{}".format(args.id,now.strftime("%d_%m_%Y_%H_%M_%S"))
     args.output_dir = logdir
     if not os.path.exists(logdir):
         os.makedirs(logdir)
@@ -300,11 +298,11 @@ if __name__ == "__main__":
         help="Dataset name",
     )
     parser.add_argument(
-        "--root",
+        "--meta_dir",
         nargs="?",
         type=str,
         default= "./datasets/",
-        help="Data meta data root",
+        help="Dataset meta information directory",
     )
     parser.add_argument(
         "--data_dir",

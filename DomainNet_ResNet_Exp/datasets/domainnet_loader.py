@@ -5,11 +5,11 @@ from torch.utils.data import Dataset
 
 class DomainNetDataset(Dataset):
     def __init__(
-        self, data_dir, root, sites, train="train", percent=100, transform=None
+        self, data_dir, meta_dir, sites, train="train", percent=100, transform=None
     ):
         self.transform = transform
         self.train = train
-        base_dir = os.path.join(root, "domainnet")
+        base_dir = os.path.join(meta_dir, "domainnet")
         self.labels = []
         self.img_path = []
         for site in sites:

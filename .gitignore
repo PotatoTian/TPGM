@@ -1,0 +1,10 @@
+pre_trained/
+log/
+**/__pycache__
+**/*.pyc
+**/*.pyc
+*.pyc
+**/.DS_Store
+DomainNet_ResNet_Exp/models/__pycache__/
+DomainNet_ResNet_Exp/datasets/domainnet
+ImageNet_ViT_Exp/datasets/imagenet

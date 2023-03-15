@@ -10,5 +10,5 @@ cd $META_DIR
 
 # Download imagenet meta data
 gdown https://drive.google.com/uc?id=1ZiWla--2sELO1gJaXSc6Z8PjfGerjhAi
-unzip -q imagenet.zip
+unzip -q -j imagenet.zip
 rm imagenet.zip

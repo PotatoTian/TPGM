@@ -6,7 +6,7 @@
 - The environment uses Pytorch 1.7 supported on CUDA 11.x and python 3.8. 
 ```
 cd TPGM
-conda env create -f environment.yaml
+conda env create -f environment.yml
 conda activate py38
 ```
 

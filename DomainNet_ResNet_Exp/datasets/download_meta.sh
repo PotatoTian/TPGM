@@ -10,6 +10,5 @@ cd $META_DIR
 
 # Download imagenet meta data
 gdown https://drive.google.com/uc?id=1gmUPsiRnE78FCMkPD77elSJkoXU1vcJp
-unzip -q domainnet.zip
+unzip -q -j domainnet.zip
 rm domainnet.zip
-

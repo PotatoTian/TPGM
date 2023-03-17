@@ -129,7 +129,8 @@ class tpgm_trainer(object):
         self.tpgm = TPGM(model, norm_mode=norm_mode, exclude_list=exclude_list).to(self.device)
         self.pre_trained = copy.deepcopy(model)
         self.pgm_optimizer = torch.optim.Adam(self.tpgm.parameters(), lr=self.proj_lr)
-        self.dataset_iterator = iter(pgmloader)
+        self.pgmloader = pgmloader
+        self.dataset_iterator = iter(self.pgmloader)
         self.criterion = torch.nn.CrossEntropyLoss()
 
     def tpgm_iters(self, model, apply=False):

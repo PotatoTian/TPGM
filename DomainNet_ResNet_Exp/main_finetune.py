@@ -114,7 +114,7 @@ def train(logdir, args):
             v_loader,
             sampler=sampler_tpgm,
             batch_size=args.batch_size,
-            num_workers=args.num_workers,
+            num_workers=args.n_workers,
             drop_last=False,
             persistent_workers=True,
         )

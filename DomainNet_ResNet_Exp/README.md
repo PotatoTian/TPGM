@@ -48,8 +48,15 @@
     ```
 
 ## Evaluation examples and expected results
-- We provide some fine-tuned models here for quick evaluation. 
-- Example evalution command
+- We provide some fine-tuned models in the following table for quick evaluation. 
+- Example evaluation command
     ```
-    python main_eval.py --arch clip_resnet50 --gpu_per_node 1 --batch_size 128 --data_dir /srv/kira-lab/share4/ckuo45/data/domainnet --load_pretrained /srv/kira-lab/share4/jtian73/clip_resnet50_pretrain.pt --meta_dir /srv/kira-lab/share4/jtian73/ --data_dir /srv/kira-lab/share4/ckuo45/data/domainnet --resume ./log/clip_real_100_iter_1_freq_2_25_01_2023_16_42_20/ckpt.best.pth.tar
+    python main_eval.py --arch clip_resnet50 --gpu_per_node 1 --batch_size 128 --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --meta_dir ./datasets --data_dir /datasets/domainnet --resume ./fine_tuned/clip_tpgm/ckpt.best.pth.tar
     ```
+
+    | Pre-train       | Methods | Real (ID)  | Sketch | Painting | infograph | clipart | OOD Average |
+    |-----------------|---------|-------|--------|----------|-----------|---------|-------------|
+    | CLIP ResNet50   | [FT](https://drive.google.com/file/d/1swYUwvrK4OGC-u09SZWyLVJKlgc1SZxJ/view?usp=sharing)      | 79.43 | 30.43  | 41.24    | 18.66     | 42.36   | 33.17       |
+    | CLIP ResNet50   | [TPGM](https://drive.google.com/file/d/12l1EPDTH2e1X-PKBZ9CHkGIwL1W2ldV2/view?usp=sharing)    | **82.41** | **37.53**  | **45.71**    | **26.77**     | **46.07**   | **39.02**       |
+    | MocoV3 ResNet50 | [FT](https://drive.google.com/file/d/1-DG6qjqDakYtP-wR9wDAJQZ60tw3JTsc/view?usp=sharing)      | 82.00 | 31.92  | 43.67    | 19.66     | 45.78   | 35.26       |
+    | MocoV3 ResNet50 | [TPGM](https://drive.google.com/file/d/1pCgUAe939w7tas95X6xuL1TFH11bWLyt/view?usp=sharing)    | 81.30 | 35.68  | 46.64    | 20.03     | 45.77   | 37.03       |

@@ -51,5 +51,5 @@
 - We provide some fine-tuned models here for quick evaluation. 
 - Example evalution command
     ```
-    python main_eval.py --arch clip_resnet50 --gpu_per_node 4 --batch_size 128 --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --resume ./log/clip_real_100_iter_1_freq_2_25_01_2023_16_42_20/ckpt.best.pth.tar
+    python main_eval.py --arch clip_resnet50 --gpu_per_node 1 --batch_size 128 --data_dir /srv/kira-lab/share4/ckuo45/data/domainnet --load_pretrained /srv/kira-lab/share4/jtian73/clip_resnet50_pretrain.pt --meta_dir /srv/kira-lab/share4/jtian73/ --data_dir /srv/kira-lab/share4/ckuo45/data/domainnet --resume ./log/clip_real_100_iter_1_freq_2_25_01_2023_16_42_20/ckpt.best.pth.tar
     ```

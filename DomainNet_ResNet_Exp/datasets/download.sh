@@ -1,10 +1,10 @@
 # Download and extract all datasets under the same folder. 
 # Feel free to change the data directory. Please specify the new location using `--data_path`. 
 
-DATA_DIR=/datasets/domainnet2 # Change the data directory 
+DATA_DIR=/datasets/domainnet/ # Change the data directory 
 if  [ ! -d $DATA_DIR ] 
 then
-    mkdir $DATA_DIR
+    mkdir -p $DATA_DIR
 fi
 cd $DATA_DIR
 

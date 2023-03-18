@@ -171,7 +171,7 @@ def train(logdir, args):
     loaders = [
         data.DataLoader(
             dataset,
-            batch_size=args.batch_size * args.gpu_per_node* 2,
+            batch_size=args.batch_size * args.gpu_per_node * 2,
             num_workers=args.n_workers,
         )
         for dataset in datasets
@@ -255,7 +255,6 @@ if __name__ == "__main__":
         type=int,
         help="training epoch",
     )
-
     parser.add_argument(
         "--batch_size",
         default=64,

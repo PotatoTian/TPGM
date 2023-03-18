@@ -4,7 +4,7 @@
 DATA_DIR=/datasets/ImageNet2 # Change the data directory 
 if  [ ! -d $DATA_DIR ] 
 then
-    mkdir $DATA_DIR
+    mkdir -p $DATA_DIR
 fi
 cd $DATA_DIR
 

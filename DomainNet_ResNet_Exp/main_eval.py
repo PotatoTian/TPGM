@@ -14,7 +14,6 @@ from utils.clip_utils import clip_config
 
 
 
-
 def eval(args):
 
     # Setup device
@@ -85,9 +84,9 @@ def eval(args):
 
     ##================== Testing ============================
     print("start testing")
-    sites = ["real", "sketch", "painting", "infograph", "clipart"]
+    sites = ["real", "sketch", "painting", "clipart", "infograph"]
     datasets = [
-        get_loader("test", name=args.dataset, root=args.root, data_dir=args.data_dir, site=site)
+        get_loader("test", name=args.dataset, meta_dir=args.meta_dir, data_dir=args.data_dir, site=site)
         for site in sites
     ]
     loaders = [
@@ -180,11 +179,11 @@ if __name__ == "__main__":
         help="Dataset name",
     )
     parser.add_argument(
-        "--root",
+        "--meta_dir",
         nargs="?",
         type=str,
         default= "./datasets/",
-        help="Data meta data root",
+        help="Dataset meta information directory",
     )
     parser.add_argument(
         "--data_dir",

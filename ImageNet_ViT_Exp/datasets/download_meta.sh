@@ -4,7 +4,7 @@ META_DIR=./datasets/imagenet
 
 if  [ ! -d $META_DIR ] 
 then
-    mkdir $META_DIR
+    mkdir -p $META_DIR
 fi
 cd $META_DIR
 

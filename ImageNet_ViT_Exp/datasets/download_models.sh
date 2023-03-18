@@ -4,7 +4,7 @@ MODEL_DIR=../pre_trained
 
 if  [ ! -d $MODEL_DIR ] 
 then
-    mkdir $MODEL_DIR
+    mkdir -p $MODEL_DIR
 fi
 cd $MODEL_DIR
 

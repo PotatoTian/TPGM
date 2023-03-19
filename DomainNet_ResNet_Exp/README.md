@@ -48,7 +48,7 @@
     ```
 
 ## Evaluation examples and expected results
-- We provide some fine-tuned models in the following table for quick evaluation. 
+- We provide some fine-tuned models in the following table for quick evaluation. Download the corresponding weights and update the `--resume` flag.
 - Example evaluation command
     ```
     python main_eval.py --arch clip_resnet50 --gpu_per_node 1 --batch_size 128 --load_pretrained ../pre_trained/clip_resnet50_pretrain.pt --meta_dir ./datasets --data_dir /datasets/domainnet --resume ./fine_tuned/clip_tpgm/ckpt.best.pth.tar

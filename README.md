@@ -1,6 +1,6 @@
 # Trainable Projected Gradient Method (TPGM)
 
- This repo implements the experiments in the paper ``Trainable Projected Gradient Method for Robust Fine-Tuning``. Specifically, we divde experiments into two categories: DomainNet experiments using ResNet and ImageNet experiments using ViT. The main difference is in how TPGM is applied.
+ This repo implements the experiments in the paper [``Trainable Projected Gradient Method for Robust Fine-Tuning``](https://arxiv.org/abs/2303.10720). Specifically, we divde experiments into two categories: DomainNet experiments using ResNet and ImageNet experiments using ViT. The main difference is in how TPGM is applied.
 
 ## Create conda environment
 - The environment uses Pytorch 1.7 supported on CUDA 11.x and python 3.8. 

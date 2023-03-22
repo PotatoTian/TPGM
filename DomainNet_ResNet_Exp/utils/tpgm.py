@@ -7,6 +7,7 @@ class TPGM(nn.Module):
         super().__init__()
         self.norm_mode = norm_mode
         self.exclude_list = exclude_list
+        self.threshold = torch.nn.Hardtanh(0,1)
         self.constraints_name = []
         self.constraints = []
         self.create_contraint(model) # Create constraint place holders
@@ -74,7 +75,7 @@ class TPGM(nn.Module):
         with torch.no_grad():
             constraint.copy_(self._clip(constraint, norms)) # Clip constraint to be within (1e-8, norms.max)
             
-        ratio = constraint / (norms + 1e-8)
+        ratio = self.threshold(constraint / (norms + 1e-8))
         return ratio
 
     def _clip(self, constraint, norms):

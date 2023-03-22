@@ -192,7 +192,7 @@ def log_constraints(logdir, tpgm, init=False, save=False):
             dump_ratio_csv(logdir, csv_param)
         if save:
             csv_param = {
-                str(i): [tpgm.activation(constraint.mean()).item()]
+                str(i): [constraint.mean().item()]
                 for i, constraint in enumerate(tpgm.constraints)
             }
             dump_ratio_csv(logdir, csv_param)

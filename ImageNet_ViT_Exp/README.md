@@ -47,11 +47,11 @@ CLIP pre-trained ViTs have shown to have good linear connectivity, i.e., a fine-
 
 - Applying TPGM using CLIP pre-trained ViT-B. Use `--proj_freq 1` to use TPGM. Remember to update `--data_path` to reflect changes to the location of image data.
 ```
-python main_finetune.py --output_dir ./log/TPGM --load_pretrained ../pre_trained/ViT-B-16.pt --load_ft ../pre_trained/vit_b_checkpoint-best.pth --load_head ../pre_trained/clip_vitbase16_pretrain_head.pt --proj_freq 1 --data_path /datasets/ImageNet/
+python main_finetune.py --output_dir ./log/TPGM --load_pretrained ../pre_trained/clip_vitbase16_pretrain.pt --load_ft ../pre_trained/clip_vitbase16_finetuned.pth --load_head ../pre_trained/clip_vitbase16_pretrain_head.pt --proj_freq 1 --data_path /datasets/ImageNet/
 ```
 - Applying WiSE-FT. `--mu` sets the interpolation weight for Wise-FT.
 ```
-python main_finetune.py --output_dir ./log/wise --load_pretrained ../pre_trained/ViT-B-16.pt --load_ft ../pre_trained/vit_b_checkpoint-best.pth --load_head ../pre_trained/clip_vitbase16_pretrain_head.pt --mu 0.5 --data_path /datasets/ImageNet/
+python main_finetune.py --output_dir ./log/wise --load_pretrained ../pre_trained/clip_vitbase16_pretrain.pt --load_ft ../pre_trained/clip_vitbase16_finetuned.pth --load_head ../pre_trained/clip_vitbase16_pretrain_head.pt --mu 0.5 --data_path /datasets/ImageNet/
 ```
 
 ## Expected Results

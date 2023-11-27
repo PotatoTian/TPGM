@@ -124,7 +124,7 @@ def train(logdir, args):
             args.norm_mode,
             args.proj_lr,
             args.max_iters,
-            exclude_list=["head.weight","head.bias"]
+            exclude_list=["module.head.weight","module.head.bias"]
         )
     else:
         tpgm = None
